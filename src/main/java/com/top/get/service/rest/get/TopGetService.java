@@ -18,7 +18,7 @@ import com.top.get.thought.GetThoughts;
 import com.top.get.thought.GetUserThoughts;
 import com.top.lib.beans.generic.InsertResponseBean;
 
-@Path("/topget")
+@Path("/out")
 public class TopGetService {
 	@GET
 	@Path("/test")

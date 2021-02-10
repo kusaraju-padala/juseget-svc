@@ -77,7 +77,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>juseget-svc</finalName>
+		<finalName>jusenewsget</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
