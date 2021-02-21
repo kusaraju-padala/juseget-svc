@@ -6,7 +6,7 @@
 	<artifactId>juseget-svc</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>juseget-svc</name>
+	<name>juseget</name>
 	<url>http://maven.apache.org</url>
 
 	<repositories>
@@ -77,7 +77,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>jusenewsget</finalName>
+		<finalName>juseget</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
