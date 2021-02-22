@@ -133,13 +133,13 @@ public class TopGetService {
 	}
 	
 	@GET
-	@Path("/userthoughts")
+	@Path("/userthoughts/{userid}")
 	@Consumes("application/json")
 	@Produces("application/json; charset=UTF-8")
-	public Response getUserThoughts(@QueryParam("userid") Integer thoughtid) {
+	public Response getUserThoughts(@PathParam("userid") Integer userid) {
 		InsertResponseBean response = new InsertResponseBean();
 		try {
-			List<Map<String, Object>> data =  new GetUserThoughts().getUserThoughts(thoughtid);
+			List<Map<String, Object>> data =  new GetUserThoughts().getUserThoughts(userid);
 			// JsonObject jsonObject =new JsonParser().parse(data).getAsJsonObject();
 			response.setData(data);
 			response.setCode(0);
