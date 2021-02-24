@@ -131,35 +131,17 @@ public class TopGetService {
 		}
 		return Response.ok(response).build();
 	}
-	
+
 	@GET
 	@Path("/userthoughts/{userid}")
 	@Consumes("application/json")
 	@Produces("application/json; charset=UTF-8")
-	public Response getUserThoughts(@PathParam("userid") Integer userid) {
+	public Response getUserThoughts(@PathParam("userid") Integer userid, @QueryParam("pagenum") Integer pagenum) {
 		InsertResponseBean response = new InsertResponseBean();
 		try {
-			List<Map<String, Object>> data =  new GetUserThoughts().getUserThoughts(userid);
-			// JsonObject jsonObject =new JsonParser().parse(data).getAsJsonObject();
-			response.setData(data);
-			response.setCode(0);
-			response.setMessage("Success!!!");
-		} catch (Exception e) {
-			e.printStackTrace();
-			response.setCode(-1);
-			response.setMessage("Something went wrong please try agian after sometime");
-		}
-		return Response.ok(response).build();
-	}
-	
-	@GET
-	@Path("/thoughtscount")
-	@Consumes("application/json")
-	@Produces("application/json; charset=UTF-8")
-	public Response getThoughtsCount(@QueryParam("userid") Integer thoughtid) {
-		InsertResponseBean response = new InsertResponseBean();
-		try {
-			List<Map<String, Object>> data = new GetUserThoughts().getUserThoughts(thoughtid);
+			if (null == pagenum || pagenum <= 0)
+				pagenum = 1;
+			List<Map<String, Object>> data = new GetUserThoughts().getUserThoughts(userid, pagenum);
 			// JsonObject jsonObject =new JsonParser().parse(data).getAsJsonObject();
 			response.setData(data);
 			response.setCode(0);
@@ -172,7 +154,26 @@ public class TopGetService {
 		return Response.ok(response).build();
 	}
 
-	
+	@GET
+	@Path("/thoughtscount")
+	@Consumes("application/json")
+	@Produces("application/json; charset=UTF-8")
+	public Response getThoughtsCount(@QueryParam("thoughtid") Integer thoughtid) {
+		InsertResponseBean response = new InsertResponseBean();
+		try {
+//			List<Map<String, Object>> data = new GetUserThoughts().getUserThoughts(thoughtid);
+//			// JsonObject jsonObject =new JsonParser().parse(data).getAsJsonObject();
+//			response.setData(data);
+//			response.setCode(0);
+//			response.setMessage("Success!!!");
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.setCode(-1);
+			response.setMessage("Something went wrong please try agian after sometime");
+		}
+		return Response.ok(response).build();
+	}
+
 //	try{
 //		UserBean bean = auth.validateUser(username,password);
 //		if(bean !=null) {
