@@ -32,10 +32,10 @@ public class TopGetService {
 	@Consumes("application/json")
 	@Produces("application/json; charset=UTF-8")
 	public Response getFeed(@QueryParam("pagenum") Integer pagenum, @QueryParam("location") String location,
-			@QueryParam("dynamic") String dynamic, @QueryParam("categories") String categories) {
+			@QueryParam("languageid") Integer language, @QueryParam("categories") String categories) {
 		InsertResponseBean response = new InsertResponseBean();
 		try {
-			List<Map<String, Object>> data = new GetFeed().getFeed(pagenum, location, dynamic, categories);
+			List<Map<String, Object>> data = new GetFeed().getFeed(pagenum, location, language, categories);
 			response.setData(data);
 			response.setCode(0);
 			response.setMessage("Success!!!");
