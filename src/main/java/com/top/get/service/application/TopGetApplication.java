@@ -7,6 +7,7 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 import com.top.get.service.rest.get.TopGetService;
+import com.top.get.service.rest.get.TopStarService;
 import com.top.get.service.rest.verifyToken.VerifyTokenFilter;
 
 @ApplicationPath("/")
@@ -16,6 +17,7 @@ public class TopGetApplication extends Application {
 	
 	public TopGetApplication() {
 		singletons.add(new TopGetService());
+		singletons.add(new TopStarService());
 		singletons.add(new VerifyTokenFilter());
 	}
 	
